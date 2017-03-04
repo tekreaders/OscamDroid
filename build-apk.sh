@@ -33,7 +33,7 @@ function build {
   echo "{\"apk\":\"$APK_VER\",\"revision\":\"$NEW_REV\",\"link\":\"https://raw.githubusercontent.com/tekreaders/OscamDroid/master/releases/OscamDroid-b$APK_VER-svn$NEW_REV.apk\"}" > version.json
   cat version.json
   echo "Pushing to repository..."  
-  git add --all
+  git add --all .
   git commit -m "New release OscamDroid-b$APK_VER-svn$NEW_REV"
   git push
 }
@@ -66,3 +66,4 @@ if [ "$CURRENT_REV" == "$NEW_REV" ]; then
   build
 fi
 echo "Process completed!"
+sleep 2
