@@ -22,13 +22,13 @@ function build {
   echo "Building APK version $APK_VER..."
   ./gradlew clean
   ./gradlew assembleRelease
-  cp $OSCAMDROID_PATH/app/build/outputs/apk/app-release.apk $OSCAMREPO_PATH/releases/OscamDroid-b$APK_VER-svn$NEW_REV.apk
   cd $OSCAMREPO_PATH
   git pull
   echo "Deleting previous builds..."
   cd releases
   rm *
   cd ..
+  cp $OSCAMDROID_PATH/app/build/outputs/apk/app-release.apk $OSCAMREPO_PATH/releases/OscamDroid-b$APK_VER-svn$NEW_REV.apk
   echo "Building version.json for new release..."  
   echo "{\"apk\":\"$APK_VER\",\"revision\":\"$NEW_REV\",\"link\":\"https://raw.githubusercontent.com/tekreaders/OscamDroid/master/releases/OscamDroid-b$APK_VER-svn$NEW_REV.apk\"}" > version.json
   cat version.json
